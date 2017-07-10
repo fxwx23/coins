@@ -1,4 +1,4 @@
-package: github.com/fxwx23/coinchecker
+package: github.com/fxwx23/coin-checker
 import:
 - package: github.com/labstack/echo
   version: ~3.1
