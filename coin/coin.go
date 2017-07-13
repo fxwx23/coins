@@ -42,17 +42,73 @@ func All(c echo.Context) error {
 		return c.String(http.StatusNoContent, "no content.")
 	}
 
-	mes := `
-	*Current encrypted curreny status*
+	mes := `*Current cryptocurrency status*
 
-	USD:
-	` + res.JpyBased.Usd +
-		`
-	BTC:
-	` + res.JpyBased.Btc
+*USD* : $` + res.JpyBased.Usd + `
+*BTC* : ¥` + res.JpyBased.Btc + `
+*ETH* : ¥` + res.JpyBased.Eth + `
+*ETC* : ¥` + res.JpyBased.Etc + `
+*DAO* : ¥` + res.JpyBased.Dao + `
+*LSK* : ¥` + res.JpyBased.Lsk + `
+*FCT* : ¥` + res.JpyBased.Fct + `
+*XMR* : ¥` + res.JpyBased.Xmr + `
+*REP* : ¥` + res.JpyBased.Rep + `
+*XRP* : ¥` + res.JpyBased.Xrp + `
+*ZEC* : ¥` + res.JpyBased.Zec + `
+*XEM* : ¥` + res.JpyBased.Xem + `
+*LTC* : ¥` + res.JpyBased.Ltc + `
+*DASH* : ¥` + res.JpyBased.Dash
 
 	if t := c.FormValue("text"); strings.Contains(t, "btc") {
-		mes = "btc:" + res.JpyBased.Btc
+		mes = "*BTC* : ¥" + res.JpyBased.Btc
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "eth") {
+		mes = "*ETH* : ¥" + res.JpyBased.Eth
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "etc") {
+		mes = "*ETC* : ¥" + res.JpyBased.Etc
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "dao") {
+		mes = "*DAO* : ¥" + res.JpyBased.Dao
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "lsk") {
+		mes = "*LSK* : ¥" + res.JpyBased.Lsk
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "fct") {
+		mes = "*FCT* : ¥" + res.JpyBased.Fct
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "xmr") {
+		mes = "*XMR* : ¥" + res.JpyBased.Xmr
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "rep") {
+		mes = "*REP* : ¥" + res.JpyBased.Rep
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "xrp") {
+		mes = "*XRP* : ¥" + res.JpyBased.Xrp
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "zec") {
+		mes = "*ZEC* : ¥" + res.JpyBased.Zec
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "xem") {
+		mes = "*XEM* : ¥" + res.JpyBased.Xem
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "ltc") {
+		mes = "*LTC* : ¥" + res.JpyBased.Ltc
+	}
+
+	if t := c.FormValue("text"); strings.Contains(t, "dash") {
+		mes = "*DASH* : ¥" + res.JpyBased.Dash
 	}
 
 	json := map[string]string{
