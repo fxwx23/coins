@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/labstack/echo"
 )
@@ -49,6 +50,10 @@ func All(c echo.Context) error {
 		`
 	BTC:
 	` + res.JpyBased.Btc
+
+	if t := c.FormValue("text"); strings.Contains(t, "btc") {
+		mes = "btc:" + res.JpyBased.Btc
+	}
 
 	json := map[string]string{
 		"response_type": "in_channel",

@@ -21,7 +21,7 @@ func main() {
 		return c.String(http.StatusOK, "Coin Checker\n")
 	})
 
-	e.GET("/coins", coin.All)
+	e.POST("/coins", coin.All)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
